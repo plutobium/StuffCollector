@@ -63,12 +63,12 @@
 				CB8F330C1EEE5C6E0092C8F8 /* flower.jpg */,
 				CB36F78C1EEE53E1004D80EF /* AppDelegate.swift */,
 				CB36F78E1EEE53E1004D80EF /* ViewController.swift */,
+				CB8F330E1EEE61F50092C8F8 /* DetailViewController.swift */,
 				CB36F7901EEE53E1004D80EF /* Main.storyboard */,
 				CB36F7961EEE53E1004D80EF /* Assets.xcassets */,
 				CB36F7981EEE53E1004D80EF /* LaunchScreen.storyboard */,
 				CB36F79B1EEE53E1004D80EF /* Info.plist */,
 				CB36F7931EEE53E1004D80EF /* StuffCollector.xcdatamodeld */,
-				CB8F330E1EEE61F50092C8F8 /* DetailViewController.swift */,
 			);
 			path = StuffCollector;
 			sourceTree = "<group>";

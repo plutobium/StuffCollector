@@ -8,7 +8,9 @@
 
 import UIKit
 
-class DetailViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class DetailViewController: UIViewController,
+                            UIImagePickerControllerDelegate,
+                            UINavigationControllerDelegate {
     
     @IBOutlet weak var photoImageView: UIImageView!
     
@@ -17,6 +19,12 @@ class DetailViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     @IBAction func photoButtonAction(_ sender: Any) {
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        photoImageView.image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imagePicker.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func cameraButtonAction(_ sender: Any) {
