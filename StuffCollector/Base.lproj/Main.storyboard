@@ -5,6 +5,8 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="434" y="-3"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="I34-xZ-3cX">
             <objects>
-                <viewController id="lvY-wF-gxZ" sceneMemberID="viewController">
+                <viewController id="lvY-wF-gxZ" customClass="DetailViewController" customModule="StuffCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eDf-Xg-Ueb"/>
                         <viewControllerLayoutGuide type="bottom" id="F9U-tr-elb"/>
@@ -44,13 +46,71 @@
                     <view key="view" contentMode="scaleToFill" id="sr8-mh-ckN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PnH-YY-7xc">
+                                <rect key="frame" x="16" y="118" width="343" height="123"/>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mmb-OD-pWt">
+                                <rect key="frame" x="24" y="318" width="289" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olx-kh-qUg">
+                                <rect key="frame" x="321" y="318" width="38" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="Boe-LX-cWj"/>
+                                </constraints>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonAction:" destination="lvY-wF-gxZ" eventType="touchUpInside" id="HKw-PQ-Ykr"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="BpM-Eo-wt9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PnH-YY-7xc" firstAttribute="trailing" secondItem="olx-kh-qUg" secondAttribute="trailing" id="A09-SP-UYn"/>
+                            <constraint firstItem="Mmb-OD-pWt" firstAttribute="top" secondItem="olx-kh-qUg" secondAttribute="top" id="ALX-uc-C5z"/>
+                            <constraint firstItem="Mmb-OD-pWt" firstAttribute="top" secondItem="BpM-Eo-wt9" secondAttribute="bottom" constant="8" symbolic="YES" id="CMm-PW-xbH"/>
+                            <constraint firstItem="Mmb-OD-pWt" firstAttribute="centerY" secondItem="sr8-mh-ckN" secondAttribute="centerY" id="Dnh-TX-sLA"/>
+                            <constraint firstItem="BpM-Eo-wt9" firstAttribute="centerX" secondItem="PnH-YY-7xc" secondAttribute="centerX" id="IYZ-gS-OHg"/>
+                            <constraint firstItem="PnH-YY-7xc" firstAttribute="top" secondItem="eDf-Xg-Ueb" secondAttribute="bottom" constant="54" id="N83-7e-8nd"/>
+                            <constraint firstAttribute="trailing" secondItem="BpM-Eo-wt9" secondAttribute="trailing" id="VBm-l0-moS"/>
+                            <constraint firstItem="olx-kh-qUg" firstAttribute="leading" secondItem="Mmb-OD-pWt" secondAttribute="trailing" constant="8" symbolic="YES" id="WAi-sP-jHw"/>
+                            <constraint firstItem="BpM-Eo-wt9" firstAttribute="leading" secondItem="sr8-mh-ckN" secondAttribute="leading" id="ZZQ-X7-aWT"/>
+                            <constraint firstItem="PnH-YY-7xc" firstAttribute="leading" secondItem="sr8-mh-ckN" secondAttribute="leadingMargin" id="bLX-W7-ora"/>
+                            <constraint firstItem="BpM-Eo-wt9" firstAttribute="top" secondItem="sr8-mh-ckN" secondAttribute="top" id="fhG-uu-W3n"/>
+                            <constraint firstItem="Mmb-OD-pWt" firstAttribute="top" secondItem="PnH-YY-7xc" secondAttribute="bottom" constant="77" id="gdy-RM-mQ8"/>
+                            <constraint firstItem="Mmb-OD-pWt" firstAttribute="leading" secondItem="sr8-mh-ckN" secondAttribute="leadingMargin" constant="8" id="kCc-cN-GzC"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Heg-YA-z3v"/>
+                    <navigationItem key="navigationItem" id="Heg-YA-z3v">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="JGy-a5-7gI">
+                                <connections>
+                                    <action selector="cameraButtonAction:" destination="lvY-wF-gxZ" id="QF0-Og-PWk"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Photos" id="bYc-CL-fdx">
+                                <connections>
+                                    <action selector="photoButtonAction:" destination="lvY-wF-gxZ" id="Q8k-GJ-Ems"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButtonAction" destination="olx-kh-qUg" id="GZV-QJ-HSW"/>
+                        <outlet property="descriptionTextField" destination="Mmb-OD-pWt" id="2Lc-E8-OBS"/>
+                        <outlet property="photoImageView" destination="BpM-Eo-wt9" id="iY1-mI-KfO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQa-nh-MjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244" y="-5"/>
+            <point key="canvasLocation" x="1243.5" y="-6.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rec-ph-eik">
@@ -71,4 +131,7 @@
             <point key="canvasLocation" x="-454" y="-3"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="flower.jpg" width="2175" height="2368"/>
+    </resources>
 </document>

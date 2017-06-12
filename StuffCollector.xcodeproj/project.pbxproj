@@ -13,6 +13,8 @@
 		CB36F7951EEE53E1004D80EF /* StuffCollector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB36F7931EEE53E1004D80EF /* StuffCollector.xcdatamodeld */; };
 		CB36F7971EEE53E1004D80EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB36F7961EEE53E1004D80EF /* Assets.xcassets */; };
 		CB36F79A1EEE53E1004D80EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB36F7981EEE53E1004D80EF /* LaunchScreen.storyboard */; };
+		CB8F330D1EEE5C6E0092C8F8 /* flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB8F330C1EEE5C6E0092C8F8 /* flower.jpg */; };
+		CB8F330F1EEE61F50092C8F8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8F330E1EEE61F50092C8F8 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		CB36F7961EEE53E1004D80EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB36F7991EEE53E1004D80EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB36F79B1EEE53E1004D80EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB8F330C1EEE5C6E0092C8F8 /* flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower.jpg; path = ../../../../flower.jpg; sourceTree = "<group>"; };
+		CB8F330E1EEE61F50092C8F8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		CB36F78B1EEE53E1004D80EF /* StuffCollector */ = {
 			isa = PBXGroup;
 			children = (
+				CB8F330C1EEE5C6E0092C8F8 /* flower.jpg */,
 				CB36F78C1EEE53E1004D80EF /* AppDelegate.swift */,
 				CB36F78E1EEE53E1004D80EF /* ViewController.swift */,
 				CB36F7901EEE53E1004D80EF /* Main.storyboard */,
@@ -63,6 +68,7 @@
 				CB36F7981EEE53E1004D80EF /* LaunchScreen.storyboard */,
 				CB36F79B1EEE53E1004D80EF /* Info.plist */,
 				CB36F7931EEE53E1004D80EF /* StuffCollector.xcdatamodeld */,
+				CB8F330E1EEE61F50092C8F8 /* DetailViewController.swift */,
 			);
 			path = StuffCollector;
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8F330D1EEE5C6E0092C8F8 /* flower.jpg in Resources */,
 				CB36F79A1EEE53E1004D80EF /* LaunchScreen.storyboard in Resources */,
 				CB36F7971EEE53E1004D80EF /* Assets.xcassets in Resources */,
 				CB36F7921EEE53E1004D80EF /* Main.storyboard in Resources */,
@@ -141,6 +148,7 @@
 				CB36F78F1EEE53E1004D80EF /* ViewController.swift in Sources */,
 				CB36F78D1EEE53E1004D80EF /* AppDelegate.swift in Sources */,
 				CB36F7951EEE53E1004D80EF /* StuffCollector.xcdatamodeld in Sources */,
+				CB8F330F1EEE61F50092C8F8 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +324,7 @@
 				CB36F7A01EEE53E1004D80EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
