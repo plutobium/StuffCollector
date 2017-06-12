@@ -11,9 +11,8 @@ import UIKit
 class DetailViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var descriptionTextField: UITextField!
     
-   var imagePicker = UIImagePickerController()
+    var imagePicker = UIImagePickerController()
     
     @IBAction func photoButtonAction(_ sender: Any) {
         imagePicker.sourceType = .photoLibrary
@@ -24,14 +23,13 @@ class DetailViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         
     }
     
-    @IBAction func addButtonAction(_ sender: UIButton) {
+    @IBAction func addButtonAction(_ sender: Any) {
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        // Do any additional setup after loading the view.
     }
     
 }
