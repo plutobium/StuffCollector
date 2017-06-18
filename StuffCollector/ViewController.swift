@@ -8,11 +8,45 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    @IBOutlet weak var stuffTableView: UITableView!
+    
+    var thingArray:[Thing] = []
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return thingArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = UITableViewCell()
+            let thing = thingArray[indexPath.row]
+            cell.textLabel?.text = thing.title
+            cell.imageView?.image = UIImage(data:thing.image as Data!)
+            return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextVC = DetailViewController()
+        nextVC.singleThing = thingArray[indexPath.row]
+        performSegue(withIdentifier: "detailSegue", sender: nil)
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        do {
+            thingArray = try context.fetch(Thing.fetchRequest())
+        } catch {
+            print("Error fetching thingarray")
+        }
+        stuffTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        stuffTableView.dataSource = self
+        stuffTableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
