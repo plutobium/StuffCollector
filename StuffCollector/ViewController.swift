@@ -27,9 +27,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextVC = DetailViewController()
-        nextVC.singleThing = thingArray[indexPath.row]
-        performSegue(withIdentifier: "detailSegue", sender: nil)
+        performSegue(withIdentifier: "detailSegue", sender: thingArray[indexPath.row])
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! DetailViewController
+        nextVC.singleThing = sender as? Thing
     }
 
     override func viewWillAppear(_ animated: Bool) {

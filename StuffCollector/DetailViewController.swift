@@ -14,6 +14,8 @@ class DetailViewController: UIViewController,
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var addUpdateButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     
     var imagePicker = UIImagePickerController()
@@ -36,24 +38,45 @@ class DetailViewController: UIViewController,
     }
     
     @IBAction func addButtonAction(_ sender: Any) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let thing = Thing(context:context)
-        thing.title = titleTextField.text
-        thing.image = UIImagePNGRepresentation(photoImageView.image!)
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        if singleThing != nil {
+            // update existing
+            singleThing!.title = titleTextField.text
+            singleThing!.image = UIImagePNGRepresentation(photoImageView.image!)
+        } else {
+            // create new
+            let newThing = Thing(context:context)
+            newThing.title = titleTextField.text
+            newThing.image = UIImagePNGRepresentation(photoImageView.image!)
+        }
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController!.popViewController(animated: true)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         if singleThing != nil {
-            //photoImageView.image = singleThing.image
-            titleTextField.text = singleThing!.title
+            photoImageView.image = UIImage(data: singleThing!.image as Data!)
+            titleTextField.text  = singleThing!.title
+            addUpdateButton.setTitle("Update", for: .normal)
         } else {
-            titleTextField.text = "not passed"
+            deleteButton.isHidden = true
         }
     }
     
+    @IBAction func deleteButtonAction(_ sender: Any) {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(singleThing!)
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationController!.popViewController(animated: true)
+        
+        
+    }
 }
